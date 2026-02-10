@@ -71,28 +71,6 @@ python src/train_model.py
 *   Saves the trained model to `models/xgboost_model.pkl`.
 *   Prints evaluation metrics (MAE, R2 Score).
 
-
-
-##  Project Structure
-
-calorie-burnt-prediction/
-├── data/                   # Generated dataset
-│   └── calories_data.csv
-├── models/                 # Trained models
-│   └── xgboost_model.pkl
-├── src/                    # Source code
-│   ├── app.py              # Desktop GUI Application
-│   ├── generate_data.py    # Synthetic data generator
-│   ├── train_model.py      # Model training script
-│   └── utils.py            # Utility functions
-├── web/                    # Web Application
-│   ├── static/             # CSS, JS, Images
-│   ├── templates/          # HTML Templates
-│   └── app.py              # Flask server
-├── requirements.txt        # Project dependencies
-└── README.md               # Project documentation
-
-
 ##  Model Details
 
 The model is trained using **XGBoost Regressor** with the following inputs:
