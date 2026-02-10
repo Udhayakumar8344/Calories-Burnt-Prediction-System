@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Pulse | Smart Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Sidebar / Info Section -->
+        <div class="info-section">
+            <div class="brand">
+                <i class="fa-solid fa-heart-pulse"></i> Calorie Pulse
+            </div>
+            
+            <div class="hero-text">
+                <h1>Track Your <br><span>Potential</span></h1>
+                <p>Advanced machine learning algorithms analyze your vitals to predict precise energy expenditure.</p>
+            </div>
+
+            <div class="details-box">
+                <h3><i class="fa-solid fa-circle-info"></i> How it works</h3>
+                <ul>
+                    <li><strong>Heart Rate:</strong> Higher bpm correlates with intense activity.</li>
+                    <li><strong>Duration:</strong> Longer sessions burn more, but intensity matters.</li>
+                    <li><strong>Body Temp:</strong> A rise indicates higher metabolic range.</li>
+                </ul>
+            </div>
+            
+            <div class="footer-credit">
+                <p>&copy; 2026 Calorie Pulse AI</p>
+            </div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="form-section">
+            <h2>Enter Activity Details</h2>
+            <form id="predictionForm">
+                
+                <div class="form-group full-width">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="0" checked>
+                            <span class="custom-radio">Male</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="1">
+                            <span class="custom-radio">Female</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-calendar"></i>
+                            <input type="number" id="age" required placeholder="e.g. 25" min="10" max="100">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight (kg)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-weight-scale"></i>
+                            <input type="number" id="weight" required placeholder="e.g. 70" min="30" max="200">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="height">Height (cm)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-ruler-vertical"></i>
+                            <input type="number" id="height" required placeholder="e.g. 175" min="100" max="250">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration (min)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <input type="number" id="duration" required placeholder="e.g. 45" min="1" max="300">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="heart_rate">Heart Rate (bpm)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-heart-circle-bolt"></i>
+                            <input type="number" id="heart_rate" required placeholder="e.g. 140" min="60" max="220">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="body_temp">Body Temp (°C)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-temperature-three-quarters"></i>
+                            <input type="number" id="body_temp" step="0.1" required placeholder="e.g. 39.5" min="35" max="43">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="cta-btn">
+                    <span>Calculate Now</span> <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <div id="resultCard" class="result-card hidden">
+                <div class="result-header">Estimated Burn</div>
+                <div class="result-value"><span id="calorieValue">0</span> <small>kcal</small></div>
+                <div class="result-feedback" id="resultFeedback">Great workout!</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
